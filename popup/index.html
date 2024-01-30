@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PopUp</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div v-show="loginPage" class="popup login">
+      <div class="container">
+        <div class="card">
+          <h2>Login</h2>
+          <form @submit.prevent="loginSubmit">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div v-show="registerPage" class="popup register">
+        <div class="container">
+            <div class="card">
+              <h2>Register</h2>
+              <form @submit.prevent="registerSubmit">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="password" name="password" placeholder="Again Password" required>
+                <button type="submit">Register</button>
+              </form>
+            </div>
+          </div>
+    </div>
+
+    <div class="navbar">
+      <div class="navbarLeft">
+        <ul>
+          <li>
+            <a href="#">Menu</a >
+          </li>
+          <li>
+            <a href="#">Projects</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbarRight">
+        <button v-on:click="toggleLogin">Login</button>
+        <button v-on:click="toggleRegister">Register</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
